@@ -1,0 +1,166 @@
+{
+  "ru": [
+    {
+      "id": 1,
+      "name": "Ахимса",
+      "emoji": "🕊️",
+      "short_description": "Принцип ненасилия на уровне силы, речи или ума",
+      "description": "Ахимса — принцип ненасилия на уровне силы, речи или ума. Непричинение вреда распространяется на всё, что вас окружает: людей, животных, природу. Стоит придерживаться этого принципа, когда вы практикуете асаны на коврике. Наверняка вы уже слышали от преподавателей фразу: «Не идите в позу через боль».",
+      "practice_tip": "Сегодня тренируем принцип Ахимса, во всех контекстах жизни стараемся быть любящими и принимающими, избегаем борьбы с миром и собой, все делаем через радость и удовольствие. Стараемся быть осмотрительными и бережными в своих словах, действиях и мыслях! Если пришла мысль что кто-то «не такой», стараемся смотреть под другим углом, увидеть в этом что-то хорошее, помните, этика мудрецов касается не только действий, но и сознания. Распространяем собой Вселенскую Любовь!"
+    },
+    {
+      "id": 2,
+      "name": "Сатья",
+      "emoji": "💎",
+      "short_description": "Правдивость в мыслях, словах и поступках",
+      "description": "Сатья — правдивость. Это значит думать, говорить и поступать одинаково. Сатья — это не просто отсутствие лжи, а активное стремление к правде во всех проявлениях. Следование сатье помогает освободиться от иллюзий и искажений в восприятии реальности, позволяет видеть вещи такими, какие они есть на самом деле.",
+      "practice_tip": "Сегодня тренируем принцип Сатья — честность в первую очередь с самим собой, если раньше мы закрывали на свои недостатки глаза, сегодня смотрим на них открыто и честно, не врём, даже если нас ждут возможные неприятные последствия — опоздал на работу из-за того что проспал, так и скажи. Поленился — будь с собой и миром честным. Считаешь себя учителем — следуй тому чему учишь!"
+    },
+    {
+      "id": 3,
+      "name": "Астея",
+      "emoji": "✨",
+      "short_description": "Неприсвоение себе чужого",
+      "description": "Астея — неприсвоение себе чужого. Принцип основан на теории, что Вселенная постоянно стремится к балансу — тот, кто украл, потеряет столько же или даже больше (вспомните карму как причинно-следственный закон). Это касается не только вещей: нельзя присваивать себе чужие мысли, идеи, достижения.",
+      "practice_tip": "Сегодня тренируем принцип Астея — не берём чужого ни в жизни, ни в мыслях. Пробуем мыслить самостоятельно, не используем калькулятор когда надо что-то посчитать, не используем чужие фразы, мысли и идеи. Если нужна практика — придумай свою, по аналогии с той, что дал наставник. Не воруем у себя время и других людей время, не тратим его впустую на глупости. Ищите и создавайте своё богатство внутри, а не снаружи, хотя бы сегодня :)"
+    },
+    {
+      "id": 4,
+      "name": "Брахмачарья",
+      "emoji": "🔥",
+      "short_description": "Самодисциплина и контроль над желаниями",
+      "description": "Брахмачарья — это понятие, имеющее несколько значений, но в основном подразумевающее самодисциплину, контроль над желаниями и целенаправленность в духовной практике, а не только половое воздержание. В более широком смысле, это следование пути Брахмана, высшего сознания, и устремление к нему во всех действиях.",
+      "practice_tip": "Сегодня тренируем принцип Брахмачарья стремимся накапливать свою творческую энергию, воздерживаемся от секса, и мыслей связанных с ним, учимся контролировать эмоции, сохранять ровное спокойное состояние — отстранённости от происходящего вокруг нас. Направляем все наши устремления к Высшему Сознанию, Богу, Вселенной. Постарайтесь посмотреть на обычные вещи — работу, уборку, прогулку, как на служение этому Миру!"
+    },
+    {
+      "id": 5,
+      "name": "Апариграха",
+      "emoji": "🍃",
+      "short_description": "Не-стяжательство и непривязанность",
+      "description": "Апариграха — это принцип йоги, означающий не-стяжательство, не-накопительство или непривязанность к материальным вещам и результатам своей деятельности. В более широком смысле, это свобода от жадности, алчности и привязанностей, а также отказ от излишнего обладания и накопительства. Этот принцип — о бережном отношении к ресурсам природы, которые сейчас истощает общество потребления. Мы покупаем только то, что нам нужно, и не тратим свою энергию на приобретение и обслуживание ненужных вещей.",
+      "practice_tip": "Сегодня тренируем принцип Апариграха, стараемся использовать только то что нужно, думать только то что нужно, чувствовать только то что нужно, делать необходимое, природа всегда целесообразна, вот и мы на сегодня потренируемся быть олицетворением этого принципа. Не ешьте лишнего, не включайте воду, там где это не обязательно, не напрягайтесь без необходимости, не злитесь, там где этого можно не делать. Старайтесь избегать пустых разговоров."
+    },
+    {
+      "id": 6,
+      "name": "Шауча",
+      "emoji": "🌟",
+      "short_description": "Чистота тела, ума и речи",
+      "description": "Шауча — чистота тела, ума и речи.",
+      "practice_tip": "Сегодня тренируем принцип Шауча. Отличный повод заняться уборкой, как снаружи, так и внутри, чистое тело и одежда, квартира и место работы, очищаем все внутренние пространства: мысли, чувства, энергетика."
+    },
+    {
+      "id": 7,
+      "name": "Тапас",
+      "emoji": "🔥",
+      "short_description": "Внутренний огонь и духовная аскеза",
+      "description": "Тапас — означает внутренний огонь, самодисциплину и духовную аскезу. Это стремление к самосовершенствованию через практику, усилия и преодоление трудностей. Подразумевает дисциплину, которая помогает развивать силу воли и настойчивость в духовной практике. Это не просто физическое усилие, а скорее внутреннее состояние, которое побуждает к действию и помогает преодолевать лень.",
+      "practice_tip": "Сегодня тренируем принцип Тапас, учимся разжигать свой внутренний Огонь! Усерднее относимся к практике! Стремимся к соблюдению режима дня, преодолеваем свою лень и несобранность!"
+    },
+    {
+      "id": 8,
+      "name": "Сантоша",
+      "emoji": "😊",
+      "short_description": "Удовлетворённость и принятие",
+      "description": "Сантоша — принцип, обозначающий удовлетворённость и принятие, а также благодарность за то, что есть в настоящем моменте. Это не означает пассивность или отказ от стремлений, а скорее внутреннее спокойствие и признание текущего положения вещей.",
+      "practice_tip": "Сегодня тренируем принцип Сантоша — благодарим всё то, что приходит к нам в жизнь, те удачи и неудачи — которые являются уроками, благодарим людей и ситуации. Попробуйте поблагодарить себя, своих родителей, супругов и партнёров, детей, мир, Вселенную. Учимся сохранять позитивный настрой, несмотря на трудности, стараемся не предъявлять претензий к себе и миру, а напротив благодарим за испытание, урок."
+    },
+    {
+      "id": 9,
+      "name": "Свадхьяя",
+      "emoji": "📚",
+      "short_description": "Самообразование и самопознание",
+      "description": "Свадхьяя — самообразование. Означает изучение информации, не искажающей реальность. Замещение негативного представления о мире на адекватное. Свадхьяя включает в себя осознание своих ментальных и эмоциональных паттернов, наблюдение за своими реакциями на различные ситуации и понимание того, как эти реакции влияют на поведение и ощущения. Свадхьяя также подразумевает стремление к новым знаниям и пониманию, расширение своего кругозора и развитие критического мышления.",
+      "practice_tip": "Сегодня тренируем принцип Свадхьяя, отличный шанс изучить новый навык, прочитать то, что давно было отложено на полку, учимся наблюдать за собой и миром, критически мыслить, реализуем главный принцип Мужского начала (который также есть и у женщин) — Познание. Отличный повод почитать/посмотреть/послушать духовную литературу, поработать с Наставниками и Учителями!"
+    },
+    {
+      "id": 10,
+      "name": "Ишвара Пранидхана",
+      "emoji": "🙏",
+      "short_description": "Предание себя Высшему",
+      "description": "Ишвара Пранидхана — в йоге означает предание себя Высшему, посвящение себя Богу или духовной силе. Отказ от желания достигать конкретных целей или сравнивать себя с другими в практике, сосредоточившись на процессе и глубинной цели.",
+      "practice_tip": "Сегодня тренируем принцип Ишвара Пранидхана, отличный день, чтобы посмотреть на мир глазами Вселенной. Отождествляемся с более высоким, осознаём свою связь со Вселенной. Стремимся к свободе от Эго, обретаем прибежище в высшем Сознании. Занимаемся медитациями, йогой, цигуном. Стараемся освободиться от желания достигать конкретных целей или сравнивать себя с другими в практике, сосредоточившись на процессе и глубинной цели."
+    }
+  ],
+  "en": [
+    {
+      "id": 1,
+      "name": "Ahimsa",
+      "emoji": "🕊️",
+      "short_description": "Principle of non-violence in force, speech, or mind",
+      "description": "Ahimsa is the principle of non-violence on the level of force, speech, or mind. Non-harming extends to everything around you: people, animals, nature. You should adhere to this principle when practicing asanas on your mat. You've probably heard teachers say: 'Don't go into a pose through pain.'",
+      "practice_tip": "Today we practice the principle of Ahimsa. In all contexts of life, we strive to be loving and accepting, avoid fighting with the world and ourselves, do everything through joy and pleasure. We try to be thoughtful and careful in our words, actions, and thoughts! If a thought comes that someone is 'not right,' we try to look from a different angle, see something good in it. Remember, the ethics of sages concerns not only actions but also consciousness. Spread Universal Love through yourself!"
+    },
+    {
+      "id": 2,
+      "name": "Satya",
+      "emoji": "💎",
+      "short_description": "Truthfulness in thoughts, words, and actions",
+      "description": "Satya is truthfulness. It means to think, speak, and act consistently. Satya is not just the absence of lies, but an active striving for truth in all manifestations. Following satya helps to free oneself from illusions and distortions in perception of reality, allows one to see things as they really are.",
+      "practice_tip": "Today we practice the principle of Satya - honesty first of all with yourself. If we used to turn a blind eye to our shortcomings, today we look at them openly and honestly, we don't lie, even if possible unpleasant consequences await us - if you're late for work because you overslept, say so. If you were lazy - be honest with yourself and the world. If you consider yourself a teacher - follow what you teach!"
+    },
+    {
+      "id": 3,
+      "name": "Asteya",
+      "emoji": "✨",
+      "short_description": "Non-appropriation of others' property",
+      "description": "Asteya is non-appropriation of others' property. The principle is based on the theory that the Universe constantly strives for balance - one who steals will lose as much or even more (remember karma as a cause-and-effect law). This applies not only to things: you cannot appropriate others' thoughts, ideas, achievements.",
+      "practice_tip": "Today we practice the principle of Asteya - we don't take what belongs to others, neither in life nor in thoughts. We try to think independently, don't use a calculator when we need to count something, don't use others' phrases, thoughts and ideas. If you need practice - come up with your own, by analogy with what the teacher gave. Don't steal time from yourself and others, don't waste it on foolishness. Seek and create your wealth inside, not outside, at least today :)"
+    },
+    {
+      "id": 4,
+      "name": "Brahmacharya",
+      "emoji": "🔥",
+      "short_description": "Self-discipline and control over desires",
+      "description": "Brahmacharya is a concept with several meanings, but mainly implying self-discipline, control over desires and purposefulness in spiritual practice, not just sexual abstinence. In a broader sense, it is following the path of Brahman, the highest consciousness, and striving for it in all actions.",
+      "practice_tip": "Today we practice the principle of Brahmacharya, striving to accumulate our creative energy, abstaining from sex and thoughts related to it, learning to control emotions, maintaining a calm, peaceful state - detachment from what's happening around us. We direct all our aspirations to the Higher Consciousness, God, the Universe. Try to look at ordinary things - work, cleaning, walking - as service to this World!"
+    },
+    {
+      "id": 5,
+      "name": "Aparigraha",
+      "emoji": "🍃",
+      "short_description": "Non-possessiveness and non-attachment",
+      "description": "Aparigraha is a yoga principle meaning non-possessiveness, non-accumulation, or non-attachment to material things and results of one's activities. In a broader sense, it is freedom from greed, avarice and attachments, as well as rejection of excessive possession and accumulation. This principle is about careful attitude to nature's resources, which consumer society is now depleting. We buy only what we need and don't spend our energy on acquiring and maintaining unnecessary things.",
+      "practice_tip": "Today we practice the principle of Aparigraha, trying to use only what is needed, think only what is needed, feel only what is needed, do what is necessary. Nature is always purposeful, so let's train ourselves today to be an embodiment of this principle. Don't eat excessively, don't turn on water where it's not necessary, don't strain yourself unnecessarily, don't get angry where you can avoid it. Try to avoid empty conversations."
+    },
+    {
+      "id": 6,
+      "name": "Saucha",
+      "emoji": "🌟",
+      "short_description": "Purity of body, mind, and speech",
+      "description": "Saucha is purity of body, mind, and speech.",
+      "practice_tip": "Today we practice the principle of Saucha. A great occasion to do cleaning, both outside and inside: clean body and clothes, apartment and workplace, cleanse all internal spaces: thoughts, feelings, energy."
+    },
+    {
+      "id": 7,
+      "name": "Tapas",
+      "emoji": "🔥",
+      "short_description": "Inner fire and spiritual austerity",
+      "description": "Tapas means inner fire, self-discipline and spiritual austerity. It is striving for self-improvement through practice, effort and overcoming difficulties. It implies discipline that helps develop willpower and persistence in spiritual practice. It's not just physical effort, but rather an inner state that motivates action and helps overcome laziness.",
+      "practice_tip": "Today we practice the principle of Tapas, learning to kindle our inner Fire! We are more diligent in our practice! We strive to maintain a daily routine, overcome our laziness and scattered attention!"
+    },
+    {
+      "id": 8,
+      "name": "Santosha",
+      "emoji": "😊",
+      "short_description": "Contentment and acceptance",
+      "description": "Santosha is a principle denoting contentment and acceptance, as well as gratitude for what exists in the present moment. This doesn't mean passivity or abandoning aspirations, but rather inner peace and recognition of the current state of things.",
+      "practice_tip": "Today we practice the principle of Santosha - we thank everything that comes into our lives, those successes and failures that are lessons, we thank people and situations. Try to thank yourself, your parents, spouses and partners, children, the world, the Universe. We learn to maintain a positive attitude despite difficulties, try not to make claims to ourselves and the world, but on the contrary thank for the trial, the lesson."
+    },
+    {
+      "id": 9,
+      "name": "Svadhyaya",
+      "emoji": "📚",
+      "short_description": "Self-education and self-knowledge",
+      "description": "Svadhyaya is self-education. It means studying information that doesn't distort reality. Replacing negative worldview with adequate one. Svadhyaya includes awareness of one's mental and emotional patterns, observing one's reactions to various situations and understanding how these reactions affect behavior and sensations. Svadhyaya also implies striving for new knowledge and understanding, expanding one's horizons and developing critical thinking.",
+      "practice_tip": "Today we practice the principle of Svadhyaya, a great chance to learn a new skill, read what has long been postponed, learn to observe ourselves and the world, think critically, realize the main principle of the Masculine (which women also have) - Knowledge. A great occasion to read/watch/listen to spiritual literature, work with Mentors and Teachers!"
+    },
+    {
+      "id": 10,
+      "name": "Ishvara Pranidhana",
+      "emoji": "🙏",
+      "short_description": "Surrender to the Higher",
+      "description": "Ishvara Pranidhana in yoga means surrendering to the Higher, dedicating oneself to God or spiritual force. Abandoning the desire to achieve specific goals or compare oneself with others in practice, focusing on the process and deep purpose.",
+      "practice_tip": "Today we practice the principle of Ishvara Pranidhana, a great day to look at the world through the eyes of the Universe. We identify with the higher, realize our connection with the Universe. We strive for freedom from Ego, find refuge in higher Consciousness. We engage in meditation, yoga, qigong. We try to free ourselves from the desire to achieve specific goals or compare ourselves with others in practice, focusing on the process and deep purpose."
+    }
+  ]
+} 
