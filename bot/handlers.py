@@ -1353,7 +1353,7 @@ class BotHandlers:
         day_names = day_names_map.get(language, day_names_map["en"])
         return ", ".join([day_names[day] for day in skip_days])
     
-    def _create_timezone_keyboard(self, language: str) -> InlineKeyboardMarkup:
+    def _create_timezone_keyboard(self, language: str, add_back_button: bool = False) -> InlineKeyboardMarkup:
         """Create timezone selection keyboard."""
         timezones = {
             "en": [
@@ -1432,9 +1432,16 @@ class BotHandlers:
             callback_data="tz_custom"
         )])
         
+        # Add back button if requested
+        if add_back_button:
+            keyboard.append([InlineKeyboardButton(
+                self._get_text("back_to_menu", language), 
+                callback_data="settings_back"
+            )])
+        
         return InlineKeyboardMarkup(keyboard)
     
-    def _create_skip_days_keyboard(self, language: str, selected_days: List[int] = None) -> InlineKeyboardMarkup:
+    def _create_skip_days_keyboard(self, language: str, selected_days: List[int] = None, add_back_button: bool = False) -> InlineKeyboardMarkup:
         """Create skip days selection keyboard."""
         if selected_days is None:
             selected_days = []
@@ -1468,30 +1475,19 @@ class BotHandlers:
                 row.append(InlineKeyboardButton(button_text, callback_data=callback_data))
             keyboard.append(row)
         
-        # Add action buttons
-        action_buttons = []
+        # Add action buttons - split into two rows for better layout
         if language == "en":
-            action_buttons = [
-                InlineKeyboardButton("🎯 No Skip Days", callback_data="skipday_none"),
-                InlineKeyboardButton("📅 Weekends Only", callback_data="skipday_weekends")
-            ]
+            keyboard.append([InlineKeyboardButton("🎯 No Skip Days", callback_data="skipday_none")])
+            keyboard.append([InlineKeyboardButton("📅 Weekends Only", callback_data="skipday_weekends")])
         elif language == "ru":
-            action_buttons = [
-                InlineKeyboardButton("🎯 Не пропускать", callback_data="skipday_none"),
-                InlineKeyboardButton("📅 Только выходные", callback_data="skipday_weekends")
-            ]
+            keyboard.append([InlineKeyboardButton("🎯 Не пропускать", callback_data="skipday_none")])
+            keyboard.append([InlineKeyboardButton("📅 Только выходные", callback_data="skipday_weekends")])
         elif language == "uz":
-            action_buttons = [
-                InlineKeyboardButton("🎯 Kunlarni o'tkazmaslik", callback_data="skipday_none"),
-                InlineKeyboardButton("📅 Faqat dam olish kunlari", callback_data="skipday_weekends")
-            ]
+            keyboard.append([InlineKeyboardButton("🎯 Kunlarni o'tkazmaslik", callback_data="skipday_none")])
+            keyboard.append([InlineKeyboardButton("📅 Faqat dam olish kunlari", callback_data="skipday_weekends")])
         elif language == "kz":
-            action_buttons = [
-                InlineKeyboardButton("🎯 Күндерді өткізбеу", callback_data="skipday_none"),
-                InlineKeyboardButton("📅 Тек демалыс күндері", callback_data="skipday_weekends")
-            ]
-        
-        keyboard.append(action_buttons)
+            keyboard.append([InlineKeyboardButton("🎯 Күндерді өткізбеу", callback_data="skipday_none")])
+            keyboard.append([InlineKeyboardButton("📅 Тек демалыс күндері", callback_data="skipday_weekends")])
         
         # Add finish button
         finish_text = {
@@ -1505,6 +1501,13 @@ class BotHandlers:
             finish_text.get(language, finish_text["en"]), 
             callback_data="skipday_finish"
         )])
+        
+        # Add back button if requested
+        if add_back_button:
+            keyboard.append([InlineKeyboardButton(
+                self._get_text("back_to_menu", language), 
+                callback_data="settings_back"
+            )])
         
         return InlineKeyboardMarkup(keyboard)
     
@@ -1687,9 +1690,7 @@ class BotHandlers:
                 
             elif setting == "timezone":
                 self.user_states[chat_id] = {"step": "change_timezone", "language": language, "settings_message_id": query.message.message_id}
-                keyboard = self._create_timezone_keyboard(language)
-                # Add back button
-                keyboard.inline_keyboard.append([InlineKeyboardButton(self._get_text("back_to_menu", language), callback_data="settings_back")])
+                keyboard = self._create_timezone_keyboard(language, add_back_button=True)
                 await query.edit_message_text(
                     self._get_text("timezone_step", language), 
                     reply_markup=keyboard,
@@ -1729,9 +1730,7 @@ class BotHandlers:
                     elif language == "kz":
                         text += f"\n\n🔸 **Күндер таңдалмаған** - хабарлар күн сайын жіберіледі"
                 
-                keyboard = self._create_skip_days_keyboard(language, current_skip_days)
-                # Add back button at the end
-                keyboard.inline_keyboard.append([InlineKeyboardButton(self._get_text("back_to_menu", language), callback_data="settings_back")])
+                keyboard = self._create_skip_days_keyboard(language, current_skip_days, add_back_button=True)
                 
                 await query.edit_message_text(
                     text, 
