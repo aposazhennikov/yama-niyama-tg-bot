@@ -20,15 +20,19 @@ COPY requirements.txt .
 RUN pip install --upgrade pip && \
     pip install -r requirements.txt
 
+# Create non-root user first
+RUN groupadd -r yogabot && useradd -r -g yogabot yogabot
+
 # Copy application code.
 COPY bot/ ./bot/
 
-# Create data directory.
-RUN mkdir -p /app/data
+# Create and setup data directory with proper permissions
+RUN mkdir -p /app/data && \
+    chown -R yogabot:yogabot /app && \
+    chmod -R 755 /app && \
+    chmod -R 777 /app/data
 
-# Create non-root user.
-RUN groupadd -r yogabot && useradd -r -g yogabot yogabot
-RUN chown -R yogabot:yogabot /app
+# Switch to non-root user
 USER yogabot
 
 # Health check.
