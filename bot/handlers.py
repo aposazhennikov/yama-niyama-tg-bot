@@ -432,13 +432,13 @@ class BotHandlers:
             ]
             reply_markup = InlineKeyboardMarkup(keyboard)
             
-            # Show welcome message in both languages.
-            welcome_en = TEXTS["en"]["welcome"] + "\n\n" + TEXTS["en"]["choose_language"]
-            welcome_ru = "\n\n" + TEXTS["ru"]["welcome"] + "\n\n" + TEXTS["ru"]["choose_language"]
+            # Show language selection message
+            welcome_message = (
+                "🕊️ **Welcome to Yoga Principles Bot!**\n\n"
+                "Please choose your language / Пожалуйста, выберите язык:"
+            )
             
-            combined_welcome = welcome_en + welcome_ru
-            
-            message = await update.message.reply_text(combined_welcome, reply_markup=reply_markup, parse_mode='Markdown')
+            message = await update.message.reply_text(welcome_message, reply_markup=reply_markup, parse_mode='Markdown')
             await self.storage.add_bot_message(chat_id, message.message_id, "welcome")
             
         except Exception as e:

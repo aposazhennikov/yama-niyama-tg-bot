@@ -12,7 +12,7 @@ import aiofiles
 class User:
     """User data model."""
     chat_id: int
-    language: str = "ru"  # Default to Russian
+    language: str = "en"  # Default to English
     timezone: str = "Europe/Moscow"
     time_for_send: str = "06:00"
     skip_day_id: List[int] = None
