@@ -5,7 +5,7 @@ import logging
 import os
 import signal
 import sys
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import List
 from aiohttp import web
 import sentry_sdk
@@ -172,7 +172,7 @@ class YogaBot:
             # Send startup message to admins.
             startup_msg = (
                 f"🚀 **Yoga Bot Started**\n\n"
-                f"🕐 Time: {datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S')} UTC\n"
+                f"🕐 Time: {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S')} UTC\n"
                 f"📊 Languages: {list(self.principles_manager._principles.keys())}\n"
                 f"🌐 HTTP server: http://localhost:{self.settings.http_port}"
             )
@@ -296,7 +296,7 @@ class YogaBot:
             "scheduler": scheduler_stats,
             "bot": {
                 "running": self.application.running,
-                "uptime_seconds": (datetime.utcnow() - self.health_check.start_time).total_seconds(),
+                "uptime_seconds": (datetime.now(timezone.utc) - self.health_check.start_time).total_seconds(),
                 "languages": list(self.principles_manager._principles.keys())
             }
         }

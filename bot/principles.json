@@ -162,5 +162,169 @@
       "description": "Ishvara Pranidhana in yoga means surrendering to the Higher, dedicating oneself to God or spiritual force. Abandoning the desire to achieve specific goals or compare oneself with others in practice, focusing on the process and deep purpose.",
       "practice_tip": "Today we practice the principle of Ishvara Pranidhana, a great day to look at the world through the eyes of the Universe. We identify with the higher, realize our connection with the Universe. We strive for freedom from Ego, find refuge in higher Consciousness. We engage in meditation, yoga, qigong. We try to free ourselves from the desire to achieve specific goals or compare ourselves with others in practice, focusing on the process and deep purpose."
     }
+  ],
+  "uz": [
+    {
+      "id": 1,
+      "name": "Ahimsa",
+      "emoji": "🕊️",
+      "short_description": "Kuch, nutq yoki ong darajasida zo'ravonlik qilmaslik tamoyili",
+      "description": "Ahimsa - kuch, nutq yoki ong darajasida zo'ravonlik qilmaslik tamoyilidir. Zarar yetkazmaslik atrofingizdagi hamma narsaga tegishli: odamlar, hayvonlar, tabiat. Bu tamoyilga yoga amaliyotida amal qilish kerak. Ustalardan \"Og'riq orqali asanaga kirma\" degan so'zlarni eshitgan bo'lsangiz kerak.",
+      "practice_tip": "Bugun Ahimsa tamoyilini mashq qilamiz, hayotning barcha kontekstlarida mehribon va qabul qiluvchi bo'lishga harakat qilamiz, dunyo va o'zimiz bilan kurashdan qochamiz, hamma narsani quvonch va zavq orqali qilamiz. So'zlarimiz, harakatlarimiz va fikrlarimizda ehtiyotkor va mehribon bo'lishga harakat qilamiz! Agar kimdir 'noto'g'ri' degan fikr kelsa, boshqa burchakdan qarashga harakat qilamiz, unda yaxshi narsalarni ko'rishga urinamiz. Donishmandlarning axloqi nafaqat harakatlarga, balki ongga ham taalluqliligini eslang. O'zimiz orqali Koinot Muhabbatini tarqatamiz!"
+    },
+    {
+      "id": 2,
+      "name": "Satya",
+      "emoji": "💎",
+      "short_description": "Fikrlar, so'zlar va harakatlarda rostgo'ylik",
+      "description": "Satya - rostgo'ylik. Bu bir xil tarzda o'ylash, gapirish va harakat qilishni anglatadi. Satya - shunchaki yolg'onning yo'qligi emas, balki barcha ko'rinishlarda haqiqatga faol intilishdir. Satyaga rioya qilish illyuziyalar va haqiqatni idrok qilishdagi buzilishlardan ozod bo'lishga yordam beradi, narsalarni qanday bo'lsa, shunday ko'rishga imkon beradi.",
+      "practice_tip": "Bugun Satya tamoyilini mashq qilamiz - birinchi navbatda o'zimizga nisbatan halollik, agar ilgari kamchiliklarimizga ko'z yumgan bo'lsak, bugun ularga ochiq va halol qaraymiz, yolg'on gapirmaymiz, hatto bizni noxush oqibatlar kutayotgan bo'lsa ham - ishga kechikkan bo'lsang, uxlab qolganim uchun, deb ayt. Dangasalik qildim - o'zim va dunyo bilan halol bo'l. O'zingni ustoz deb hisoblasang - o'rgatgan narsangga amal qil!"
+    },
+    {
+      "id": 3,
+      "name": "Asteya",
+      "emoji": "✨",
+      "short_description": "Begonani o'zlashtirib olmaslik",
+      "description": "Asteya - begona narsani o'zlashtirmaslik. Bu tamoyil Koinot doimo muvozanatga intiladi degan nazariyaga asoslanadi - o'g'irlik qilgan kishi shuncha yoki undan ham ko'proq yo'qotadi (karmani sabab-oqibat qonuni sifatida eslaymiz). Bu nafaqat narsalarga tegishli: boshqalarning fikrlari, g'oyalari, yutuqlarini o'zlashtirish mumkin emas.",
+      "practice_tip": "Bugun Asteya tamoyilini mashq qilamiz - na hayotda, na fikrlarda begona narsani olmaymiz. Mustaqil fikrlashga harakat qilamiz, hisoblash kerak bo'lganda kalkulyatordan foydalanmaymiz, boshqalarning iboralari, fikrlari va g'oyalarini ishlatmaymiz. Agar amaliyot kerak bo'lsa - o'zingnikini o'ylab top, ustoz bergan narsaga o'xshash qilib. O'zimizdan va boshqa odamlardan vaqt o'g'irlamaymiz, uni bema'ni ishlarga sarflamaymiz. Ichkarida o'z boyligingizni izlang va yarating, tashqarida emas, hech bo'lmaganda bugun :)"
+    },
+    {
+      "id": 4,
+      "name": "Brahmacharya",
+      "emoji": "🔥",
+      "short_description": "O'z-o'zini tartibga solish va istaklarga nazorat",
+      "description": "Brahmacharya - bu bir necha ma'noga ega tushuncha, lekin asosan o'z-o'zini tartibga solish, istaklarga nazorat va ruhiy amaliyotda maqsadli yo'nalishni anglatadi, nafaqat jinsiy tiyish. Kengroq ma'noda, bu Brahman yo'lidan - oliy ongdan borish va barcha harakatlarda unga intilishdir.",
+      "practice_tip": "Bugun Brahmacharya tamoyilini mashq qilamiz, ijodiy energiyamizni to'plashga harakat qilamiz, jinsiy aloqa va u bilan bog'liq fikrlardan tiyilamiz, hissiyotlarni nazorat qilishni o'rganamiz, xotirjam holatni saqlashga harakat qilamiz - atrofimizdagi voqealardan uzoqlashish. Barcha intilishlarimizni Oliy Ong, Xudo, Koinotga yo'naltirish. Oddiy narsalarga - ish, tozalash, sayr qilish - bu Dunyoga xizmat sifatida qarashga harakat qiling!"
+    },
+    {
+      "id": 5,
+      "name": "Aparigraha",
+      "emoji": "🍃",
+      "short_description": "Mol-mulk to'plamaslik va bog'lanmaslik",
+      "description": "Aparigraha - bu yoganing tamoyili bo'lib, mol-mulk to'plamaslik, jamg'armaslik yoki moddiy narsalar va o'z faoliyati natijalariga bog'lanmaslikni anglatadi. Kengroq ma'noda, bu ochko'zlik, hirs va bog'lanishlardan ozod bo'lish, shuningdek, ortiqcha egalik va jamg'arish qilishdan voz kechishdir. Bu tamoyil tabiat resurslariga ehtiyotkorlik bilan munosabatda bo'lish haqida, hozir iste'mol jamiyati ularni tugatamoqda. Biz faqat kerak bo'lgan narsani sotib olamiz va keraksiz narsalarni sotib olish va xizmat ko'rsatishga energiyamizni sarflamaymiz.",
+      "practice_tip": "Bugun Aparigraha tamoyilini mashq qilamiz, faqat kerak bo'lganini ishlatishga harakat qilamiz, faqat kerak bo'lganini o'ylash, faqat kerak bo'lganini his qilish, zarur narsani qilish. Tabiat doim maqsadga muvofiqdir, mana biz ham bugun bu tamoyilning timsoli bo'lishni mashq qilamiz. Ortiqcha yemang, zarur bo'lmagan joyda suvni yoqmang, zarurat bo'lmagan joyda zo'riqmang, qilmaslik mumkin bo'lgan joyda g'azablanmang. Bo'sh gaplardan qochishga harakat qiling."
+    },
+    {
+      "id": 6,
+      "name": "Saucha",
+      "emoji": "🌟",
+      "short_description": "Tana, ong va nutqning pokligi",
+      "description": "Saucha - tana, ong va nutqning pokligi.",
+      "practice_tip": "Bugun Saucha tamoyilini mashq qilamiz. Tozalik bilan shug'ullanish uchun ajoyib imkoniyat, ham tashqarida, ham ichkarida: pokiza tana va kiyim, uy va ish joyi, barcha ichki bo'shliqlarni tozalash: fikrlar, his-tuyg'ular, energetika."
+    },
+    {
+      "id": 7,
+      "name": "Tapas",
+      "emoji": "🔥",
+      "short_description": "Ichki olov va ruhiy zohidlik",
+      "description": "Tapas - ichki olov, o'z-o'zini tartibga solish va ruhiy zohidlikni anglatadi. Bu amaliyot, harakat va qiyinchiliklarni yengish orqali o'zini takomillashtirish intilishidir. Bu ruhiy amaliyotda iroda kuchi va qat'iyatni rivojlantirishga yordam beradigan intizomni anglatadi. Bu shunchaki jismoniy kuch emas, balki harakatga undaydigan va dangasalikni yengishga yordam beradigan ichki holat.",
+      "practice_tip": "Bugun Tapas tamoyilini mashq qilamiz, ichki Olovimizni yoqishni o'rganamiz! Amaliyotga mehr bilan munosabatda bo'lamiz! Kun tartibini saqlashga harakat qilamiz, dangasalik va tarqoqlikni yengamiz!"
+    },
+    {
+      "id": 8,
+      "name": "Santosha",
+      "emoji": "😊",
+      "short_description": "Qanoatlanish va qabul qilish",
+      "description": "Santosha - qanoatlanish va qabul qilishni, shuningdek hozirgi lahzada mavjud bo'lgan narsaga minnatdorchilikni ifodalovchi tamoyil. Bu passivlik yoki intilishlardan voz kechishni anglatmaydi, balki ichki tinchlik va mavjud vaziyatni tan olishdir.",
+      "practice_tip": "Bugun Santosha tamoyilini mashq qilamiz - hayotimizga keladigan barcha narsalarga, muvaffaqiyat va muvaffaqiyatsizliklarga - dars bo'lgan narsalarga minnatdorchilik bildiramiz, odamlar va vaziyatlarga rahmat aytamiz. O'zingizga, ota-onangizga, turmush o'rtoqlari va sheriklaringizga, bolalaringizga, dunyoga, Koinotga rahmat aytishga harakat qiling. Qiyinchiliklarga qaramay ijobiy kayfiyatni saqlab qolishni o'rganamiz, o'zimizga va dunyoga da'vo qilishga harakat qilmaymiz, aksincha sinovlar va darslar uchun rahmat aytamiz."
+    },
+    {
+      "id": 9,
+      "name": "Svadhyaya",
+      "emoji": "📚",
+      "short_description": "O'z-o'zini tarbiyalash va o'z-o'zini anglash",
+      "description": "Svadhyaya - o'z-o'zini tarbiyalash. Haqiqatni buzmaydigan ma'lumotni o'rganishni anglatadi. Dunyo haqidagi salbiy tasavvurni adekvat bilan almashtirish. Svadhyaya o'zining aqliy va hissiy naqshlarini anglash, turli vaziyatlarga bo'lgan reaktsiyalarini kuzatish va bu reaktsiyalarning xatti-harakatlar va his-tuyg'ularga qanday ta'sir qilishini tushunishni o'z ichiga oladi. Svadhyaya shuningdek yangi bilim va tushunchaga intilish, dunyoqarashni kengaytirish va tanqidiy tafakkurni rivojlantirishni anglatadi.",
+      "practice_tip": "Bugun Svadhyaya tamoyilini mashq qilamiz, yangi ko'nikma o'rganish uchun ajoyib imkoniyat, uzoq vaqtdan beri javonga qo'yilgan narsani o'qish, o'zimizni va dunyoni kuzatishni o'rganish, tanqidiy fikrlash, Erkak boshlanishining asosiy tamoyilini amalga oshirish (ayollarda ham bor) - Bilim. Ruhiy adabiyotni o'qish/tomosha qilish/tinglash, Ustoz va O'qituvchilar bilan ishlash uchun ajoyib imkoniyat!"
+    },
+    {
+      "id": 10,
+      "name": "Ishvara Pranidhana",
+      "emoji": "🙏",
+      "short_description": "O'zini Oliyga topshirish",
+      "description": "Ishvara Pranidhana - yogada o'zini Oliyga topshirish, o'zini Xudo yoki ruhiy kuchga bag'ishlashni anglatadi. Aniq maqsadlarga erishish istagidan voz kechish yoki amaliyotda boshqalar bilan o'zini solishtirishni tashlab, jarayon va chuqur maqsadga e'tibor qaratish.",
+      "practice_tip": "Bugun Ishvara Pranidhana tamoyilini mashq qilamiz, dunyoga Koinot ko'zlari bilan qarash uchun ajoyib kun. Yuqori bilan o'zimizni birlashtirish, Koinot bilan aloqamizni anglash. Egoning ozodligiga intilish, oliy Ongda panoh topish. Meditatsiya, yoga, tsigon bilan shug'ullanish. Aniq maqsadlarga erishish istagidan yoki amaliyotda boshqalar bilan o'zimizni solishtirishdan ozod bo'lishga harakat qilish, jarayon va chuqur maqsadga e'tibor qaratish."
+    }
+  ],
+  "kz": [
+    {
+      "id": 1,
+      "name": "Ахимса",
+      "emoji": "🕊️",
+      "short_description": "Күш, сөз немесе ақыл деңгейінде зорлық-зомбылық жасамау принципі",
+      "description": "Ахимса - күш, сөз немесе ақыл деңгейінде зорлық-зомбылық жасамау принципі. Зиян келтірмеу сізді қоршаған барлық нәрсеге қатысты: адамдар, жануарлар, табиғат. Йога жаттығуында осы принципті ұстану керек. Мұғалімдерден «Ауырсыну арқылы асанаға кірме» деген сөздерді естіген боларсыз.",
+      "practice_tip": "Бүгін Ахимса принципін жаттықтырамыз, өмірдің барлық контекстінде мейірімді және қабылдаушы болуға тырысамыз, әлеммен және өзімізбен күреспейміз, барлық нәрсені қуаныш пен рахат арқылы жасаймыз. Сөздерімізде, әрекеттерімізде және ойларымызда сақ және мейірімді болуға тырысамыз! Егер біреу 'дұрыс емес' деген ой келсе, басқа бұрыштан қарауға тырысамыз, онда жақсы нәрселерді көруге тырысамыз. Данышпандардың этикасы тек әрекеттерге ғана емес, санаға да қатысты екенін есте сақтаңыз. Өзіміз арқылы Әлемдік Махаббатты таратамыз!"
+    },
+    {
+      "id": 2,
+      "name": "Сатья",
+      "emoji": "💎",
+      "short_description": "Ойлар, сөздер және іс-әрекеттердегі шынайылық",
+      "description": "Сатья - шынайылық. Бұл бірдей тәсілде ойлау, сөйлеу және әрекет ету дегенді білдіреді. Сатья - бұл тек өтіріктің жоқтығы емес, барлық көріністерде шындыққа белсенді ұмтылу. Сатьяны ұстану иллюзиялар мен шындықты қабылдаудағы бұрмалаулардан босатуға көмектеседі, заттарды олар шын мәнінде қандай болса, сондай көруге мүмкіндік береді.",
+      "practice_tip": "Бүгін Сатья принципін жаттықтырамыз - ең алдымен өзімізге қатысты адалдық, егер бұрын кемшіліктерімізге көз жұмып келсек, бүгін оларға ашық және адал қараймыз, өтірік айтпаймыз, тіпті бізді жағымсыз салдарлар күтіп тұрса да - жұмысқа кешіксең, ұйықтап қалғаным үшін деп айт. Жалқаулық жасадым - өзіңмен және әлеммен адал бол. Өзіңді ұстаз деп есептесең - үйреткен нәрсеңе іс жүзінде амал ет!"
+    },
+    {
+      "id": 3,
+      "name": "Астея",
+      "emoji": "✨",
+      "short_description": "Басқаның заттарын меншіктемеу",
+      "description": "Астея - басқаның заттарын меншіктемеу. Бұл принцип Ғалам үнемі тепе-теңдікке ұмтылады деген теорияға негізделген - ұрлық жасаған адам сонша немесе одан да көп жоғалтады (карманы себеп-салдар заңы ретінде есте сақтаймыз). Бұл тек заттарға ғана қатысты емес: басқалардың ойлары, идеялары, жетістіктерін меншіктеу болмайды.",
+      "practice_tip": "Бүгін Астея принципін жаттықтырамыз - не өмірде, не ойларда басқаның затын алмаймыз. Дербес ойлауға тырысамыз, есептеу керек болғанда калькулятор пайдаланбаймыз, басқалардың сөйлемдері, ойлары мен идеяларын пайдаланбаймыз. Егер жаттығу керек болса - өзіңдікіңді ойлап тап, ұстаз берген нәрсеге ұқсас етіп. Өзімізден және басқа адамдардан уақыт ұрламаймыз, оны ақымақтыққа жұмсамаймыз. Ішкі байлығыңызды іздеңіз және жасаңыз, сыртқы емес, кем дегенде бүгін :)"
+    },
+    {
+      "id": 4,
+      "name": "Брахмачарья",
+      "emoji": "🔥",
+      "short_description": "Өзін-өзі тәрбиелеу және тілектерге бақылау",
+      "description": "Брахмачарья - бұл бірнеше мағынаға ие ұғым, бірақ негізінен өзін-өзі тәрбиелеу, тілектерге бақылау және рухани практикада мақсатты бағыттылықты білдіреді, тек жыныстық ұстамшылық емес. Кең мағынада, бұл Брахман жолымен - жоғары санамен жүру және барлық іс-әрекеттерде оған ұмтылу.",
+      "practice_tip": "Бүгін Брахмачарья принципін жаттықтырамыз, шығармашылық энергиямызды жинауға тырысамыз, жыныстық қатынас пен онымен байланысты ойлардан қашамыз, эмоцияларды бақылауды үйренеміз, тыныш жағдайды сақтауға тырысамыз - айналамыздағы болып жатқан оқиғалардан аулақ болу. Барлық ұмтылыстарымызды Жоғары Сана, Құдай, Ғаламға бағыттаймыз. Қарапайым нәрселерге - жұмыс, тазалау, серуендеу - осы Әлемге қызмет ретінде қарауға тырысыңыз!"
+    },
+    {
+      "id": 5,
+      "name": "Апариграха",
+      "emoji": "🍃",
+      "short_description": "Мүлік жинамау және байланыспау",
+      "description": "Апариграха - бұл йоганың принципі, мүлік жинамау, жиналымдамау немесе материалдық заттар мен өз қызметі нәтижелеріне байланыспауды білдіреді. Кең мағынада, бұл сараңдық, қызғаныш пен байланыстардан бас тарту, сондай-ақ артық иелену мен жинақтаудан бас тарту. Бұл принцип табиғат ресурстарына сақтықпен қарау туралы, қазір тұтыну қоғамы оларды бітіруде. Біз тек қажетті нәрсені сатып аламыз және қажетсіз заттарды сатып алуға және қызмет көрсетуге энергиямызды жұмсамаймыз.",
+      "practice_tip": "Бүгін Апариграха принципін жаттықтырамыз, тек қажеттісін пайдалануға тырысамыз, тек қажеттісін ойлау, тек қажеттісін сезіну, қажеттісін жасау. Табиғат әрқашан мақсатқа сай, міне біз де бүгін осы принциптің нышаны болуды жаттықтырамыз. Артық жемеңіз, қажет болмаған жерде суды қоспаңыз, қажеттілік болмаған жерде қиналмаңыз, жасамауға болатын жерде ашуланбаңыз. Бос сөйлестерден аулақ болуға тырысыңыз."
+    },
+    {
+      "id": 6,
+      "name": "Шауча",
+      "emoji": "🌟",
+      "short_description": "Дене, ақыл және сөздің таза болуы",
+      "description": "Шауча - дене, ақыл және сөздің таза болуы.",
+      "practice_tip": "Бүгін Шауча принципін жаттықтырамыз. Тазалықпен айналысу үшін тамаша мүмкіндік, сыртта да, ішінде де: таза дене мен киім, үй мен жұмыс орны, барлық ішкі кеңістіктерді тазалау: ойлар, сезімдер, энергетика."
+    },
+    {
+      "id": 7,
+      "name": "Тапас",
+      "emoji": "🔥",
+      "short_description": "Ішкі от және рухани аскетизм",
+      "description": "Тапас - ішкі от, өзін-өзі тәрбиелеу және рухани аскетизмді білдіреді. Бұл практика, күш-жігер және қиындықтарды жеңу арқылы өзін-өзі жетілдіруге ұмтылу. Бұл рухани практикада ерік күші мен табандылықты дамытуға көмектесетін тәртіпті білдіреді. Бұл тек физикалық күш емес, іс-әрекетке түрткі болатын және жалқаулықты жеңуге көмектесетін ішкі жағдай.",
+      "practice_tip": "Бүгін Тапас принципін жаттықтырамыз, ішкі Отымызды жағуды үйренеміз! Практикаға мейірімділікпен қараймыз! Күн тәртібін сақтауға тырысамыз, жалқаулық пен шашыраңқылықты жеңеміз!"
+    },
+    {
+      "id": 8,
+      "name": "Сантоша",
+      "emoji": "😊",
+      "short_description": "Қанағаттану және қабылдау",
+      "description": "Сантоша - қанағаттану мен қабылдауды, сондай-ақ қазіргі сәтте бар болған нәрсеге алғыс айтуды білдіретін принцип. Бұл пассивтілік немесе ұмтылыстардан бас тартуды білдірмейді, керісінше ішкі тыныштық пен қазіргі жағдайды мойындау.",
+      "practice_tip": "Бүгін Сантоша принципін жаттықтырамыз - өмірімізге келетін барлық нәрсеге, сәттіліктер мен сәтсіздіктерге - сабақ болған нәрселерге алғыс айтамыз, адамдар мен жағдайларға рахмет айтамыз. Өзіңізге, ата-анаңызға, жұбайлар мен серіктестеріңізге, балаларыңызға, әлемге, Ғаламға рахмет айтуға тырысыңыз. Қиындықтарға қарамастан оң көңіл-күйді сақтауды үйренеміз, өзімізге және әлемге талап қоймауға тырысамыз, керісінше сынақтар мен сабақтар үшін рахмет айтамыз."
+    },
+    {
+      "id": 9,
+      "name": "Свадхьяя",
+      "emoji": "📚",
+      "short_description": "Өзін-өзі тәрбиелеу және өзін-өзі тану",
+      "description": "Свадхьяя - өзін-өзі тәрбиелеу. Шындықты бұрмалмайтын ақпаратты зерттеуді білдіреді. Әлем туралы теріс көзқарасты дұрысымен алмастыру. Свадхьяя өзінің ақылшы және эмоционалдық үлгілерін сеземдеуді, әртүрлі жағдайларға реакцияларын бақылауды және бұл реакциялардың мінез-құлық пен сезімдерге қалай әсер ететінін түсінуді қамтиды. Свадхьяя сондай-ақ жаңа білім мен түсінікке ұмтылуды, дүниетанымды кеңейтуді және сыни ойлауды дамытуды білдіреді.",
+      "practice_tip": "Бүгін Свадхьяя принципін жаттықтырамыз, жаңа дағды үйрену үшін тамаша мүмкіндік, ұзақ уақыт бойы сөреге қойылған нәрсені оқу, өзімізді және әлемді бақылауды үйрену, сыни ойлау, Ерлік басталуының негізгі принципін жүзеге асыру (әйелдерде де бар) - Білім. Рухани әдебиетті оқу/көру/тыңдау, Ұстаздар мен Мұғалімдермен жұмыс жасау үшін тамаша мүмкіндік!"
+    },
+    {
+      "id": 10,
+      "name": "Ишвара Пранидхана",
+      "emoji": "🙏",
+      "short_description": "Өзін Жоғарғыға тапсыру",
+      "description": "Ишвара Пранидхана - йогада өзін Жоғарғыға тапсыру, өзін Құдайға немесе рухани күшке арнауды білдіреді. Нақты мақсаттарға жету тілегінен бас тарту немесе практикада басқалармен өзін салыстыруды тастап, процесс пен терең мақсатқа назар аудару.",
+      "practice_tip": "Бүгін Ишвара Пранидхана принципін жаттықтырамыз, әлемге Ғалам көзімен қарау үшін тамаша күн. Жоғарғымен өзімізді біріктіру, Ғаламмен байланысымызды сезіну. Эгоның бостандығына ұмтылу, жоғары Санада панасыз табу. Медитация, йога, цигун жасаумен айналысу. Нақты мақсаттарға жету тілегінен немесе практикада басқалармен өзімізді салыстырудан босату, процесс пен терең мақсатқа назар аудару."
+    }
   ]
 } 

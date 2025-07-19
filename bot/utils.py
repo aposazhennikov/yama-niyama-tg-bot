@@ -166,16 +166,16 @@ class HealthCheck:
     """Health check utilities."""
     
     def __init__(self):
-        self.start_time = datetime.utcnow()
+        self.start_time = datetime.now(timezone.utc)
     
     def get_health_status(self) -> Dict[str, Any]:
         """Get current health status."""
-        uptime = datetime.utcnow() - self.start_time
+        uptime = datetime.now(timezone.utc) - self.start_time
         
         return {
             "status": "healthy",
             "uptime_seconds": int(uptime.total_seconds()),
-            "timestamp": datetime.utcnow().isoformat(),
+            "timestamp": datetime.now(timezone.utc).isoformat(),
             "version": "1.0.0"
         }
 
@@ -183,7 +183,8 @@ class HealthCheck:
 def get_prometheus_metrics() -> str:
     """Get Prometheus metrics format."""
     # Basic metrics for now.
-    uptime = datetime.utcnow() - datetime.utcnow().replace(hour=0, minute=0, second=0, microsecond=0)
+    now = datetime.now(timezone.utc)
+    uptime = now - now.replace(hour=0, minute=0, second=0, microsecond=0)
     
     metrics = [
         "# HELP yoga_bot_uptime_seconds Bot uptime in seconds",

@@ -2,7 +2,7 @@
 
 import json
 import os
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Dict, List, Optional, Any
 from dataclasses import dataclass, asdict
 import aiofiles
@@ -160,7 +160,7 @@ class JsonStorage:
         log_entry = {
             "chat_id": chat_id,
             "principle_id": principle_id,
-            "sent_at": datetime.utcnow().isoformat()
+            "sent_at": datetime.now(timezone.utc).isoformat()
         }
         logs_data[chat_id_str].append(log_entry)
         
@@ -191,7 +191,7 @@ class JsonStorage:
         message_entry = {
             "chat_id": chat_id,
             "message_id": message_id,
-            "sent_at": datetime.utcnow().isoformat(),
+            "sent_at": datetime.now(timezone.utc).isoformat(),
             "message_type": message_type
         }
         messages_data[chat_id_str].append(message_entry)

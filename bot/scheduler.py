@@ -213,12 +213,13 @@ class YogaScheduler:
         if user:
             await self._schedule_user_message(user)
     
-    async def send_test_message(self, chat_id: int) -> bool:
+    async def send_test_message(self, chat_id: int, language: str = None) -> bool:
         """Send test message to user."""
         try:
-            # Get user to determine language.
+            # Get user to determine language if not provided.
             user = await self.storage.get_user(chat_id)
-            language = user.language if user else "en"
+            if language is None:
+                language = user.language if user else "en"
             
             # Get completely random principle.
             principle = self.principles_manager.get_random_principle(language)
@@ -227,10 +228,13 @@ class YogaScheduler:
                 return False
             
             # Test message in user's language
-            if language == "ru":
-                test_prefix = "🧪 **Тестовое сообщение**\n\n"
-            else:
-                test_prefix = "🧪 **Test Message**\n\n"
+            test_prefixes = {
+                "en": "🧪 **Test Message**\n\n",
+                "ru": "🧪 **Тестовое сообщение**\n\n",
+                "uz": "🧪 **Test xabari**\n\n",
+                "kz": "🧪 **Тест хабар**\n\n"
+            }
+            test_prefix = test_prefixes.get(language, test_prefixes["en"])
                 
             message_text = f"{test_prefix}{format_principle_message(principle)}"
             
