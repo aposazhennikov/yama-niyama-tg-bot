@@ -502,20 +502,20 @@ TEXTS = {
     }
 }
 
-# Admin texts (always in English)
+# Admin texts (always in English, no Markdown to avoid parsing errors)
 ADMIN_TEXTS = {
-    "next_principle": "📋 **Random principle for user {user_id}:**\n\n{principle}\n\n💡 *Principles are chosen randomly for each user*",
+    "next_principle": "📋 Random principle for user {user_id}:\n\n{principle}\n\n💡 Principles are chosen randomly for each user",
     "no_principles": "No available principles for user {user_id}.",
     "add_usage": "Usage: /add <principle text>",
     "add_empty": "Principle text cannot be empty.",
     "add_success": "✅ Principle '{name}' successfully added!",
     "add_error": "❌ Error adding principle.",
     "stats": (
-        "📊 **Bot Statistics:**\n\n"
+        "📊 Bot Statistics:\n\n"
         "👥 Total users: {total_users}\n"
         "✅ Active: {active_users}\n"
         "📨 Messages sent: {total_messages_sent}\n\n"
-        "⏰ **Scheduler:**\n"
+        "⏰ Scheduler:\n"
         "🔄 Scheduled jobs: {total_jobs}\n"
         "🎯 Jobs created: {jobs_created}\n"
         "🚀 Status: {status}"
@@ -524,22 +524,22 @@ ADMIN_TEXTS = {
     "broadcast_empty": "Message text cannot be empty.",
     "broadcast_start": "📢 Starting broadcast to {count} users...",
     "broadcast_result": (
-        "📢 **Broadcast Results:**\n\n"
+        "📢 Broadcast Results:\n\n"
         "✅ Sent: {sent}\n"
         "❌ Errors: {failed}\n"
         "👥 Total: {total}"
     ),
     "feedback_stats": (
-        "💌 **Feedback Statistics:**\n\n"
+        "💌 Feedback Statistics:\n\n"
         "📝 Total feedback: {total_feedback}\n"
         "📏 Average length: {average_length} chars\n"
         "💾 File size: {file_size_mb} MB\n\n"
-        "🌐 **By Language:**\n{by_language}\n\n"
+        "🌐 By Language:\n{by_language}\n\n"
         "Use /feedback_list to see recent feedback"
     ),
-    "feedback_list_header": "💌 **Recent Feedback ({count} items):**\n\n",
+    "feedback_list_header": "💌 Recent Feedback ({count} items):\n\n",
     "feedback_item": (
-        "**#{id}** | {timestamp}\n"
+        "#{id} | {timestamp}\n"
         "👤 User: {chat_id} (@{username})\n"
         "🌐 Lang: {language} | 📏 {length} chars\n"
         "💬 {message}\n"
@@ -548,16 +548,16 @@ ADMIN_TEXTS = {
     "no_feedback": "No feedback received yet.",
     "feedback_list_usage": "Usage: /feedback_list [limit] (default: 10, max: 50)",
     "admin_help": (
-        "🔧 **Admin Commands:**\n\n"
-        "📊 **Statistics:**\n"
-        "• `stats` - Bot usage statistics\n"
-        "• `feedback_stats` - Feedback statistics\n"
-        "• `feedback_list [limit]` - View recent feedback\n\n"
-        "📨 **Messages:**\n"
-        "• `next` - Show random principle for user\n"
-        "• `broadcast <message>` - Send message to all users\n\n"
-        "🛠️ **Management:**\n"
-        "• `add <text>` - Add new principle (not implemented)\n\n"
+        "🔧 Admin Commands:\n\n"
+        "📊 Statistics:\n"
+        "• stats - Bot usage statistics\n"
+        "• feedback_stats - Feedback statistics\n"
+        "• feedback_list [limit] - View recent feedback\n\n"
+        "📨 Messages:\n"
+        "• next - Show random principle for user\n"
+        "• broadcast <message> - Send message to all users\n\n"
+        "🛠️ Management:\n"
+        "• add <text> - Add new principle (not implemented)\n\n"
         "All commands are admin-only and require proper permissions."
     )
 }
@@ -2168,9 +2168,9 @@ class BotHandlers:
                 if len(message_text) > 100:
                     message_text = message_text[:97] + "..."
                 
-                # Escape special Markdown characters
-                safe_message = self._escape_markdown(message_text)
-                safe_username = self._escape_markdown(feedback.username)
+                # No need to escape since we're not using Markdown
+                safe_message = message_text
+                safe_username = feedback.username
                 
                 item_text = self._get_admin_text(
                     "feedback_item",
@@ -2201,15 +2201,7 @@ class BotHandlers:
             except:
                 logger.error(f"Could not send error message to {chat_id}")
     
-    def _escape_markdown(self, text: str) -> str:
-        """Escape special Markdown characters."""
-        if not text:
-            return ""
-        # Escape markdown special characters
-        special_chars = ['*', '_', '`', '[', ']', '(', ')', '~', '>', '#', '+', '-', '=', '|', '{', '}', '.', '!']
-        for char in special_chars:
-            text = text.replace(char, f'\\{char}')
-        return text
+
     
     async def _handle_admin(self, update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         """Handle /admin command (admin only)."""
