@@ -1077,6 +1077,11 @@ class BotHandlers:
         if chat_id not in self.admin_ids:
             return
         
+        # Check if update has message
+        if not update.message:
+            logger.warning("next called without message")
+            return
+        
         try:
             args = context.args
             target_chat_id = int(args[0]) if args else chat_id
@@ -1085,20 +1090,29 @@ class BotHandlers:
             if principle:
                 principle_text = format_principle_message(principle)
                 message_text = self._get_admin_text("next_principle", user_id=target_chat_id, principle=principle_text)
-                await update.message.reply_text(message_text, parse_mode='Markdown')
+                # Send without Markdown to avoid parsing errors
+                await update.message.reply_text(message_text)
             else:
                 text = self._get_admin_text("no_principles", user_id=target_chat_id)
                 await update.message.reply_text(text)
                 
         except Exception as e:
             logger.error(f"Error in next handler: {e}")
-            await update.message.reply_text("Error getting next principle.")
+            try:
+                await update.message.reply_text("Error getting next principle.")
+            except:
+                logger.error(f"Could not send error message to {chat_id}")
     
     async def _handle_add_principle(self, update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         """Handle /add command (admin only)."""
         chat_id = update.effective_chat.id
         
         if chat_id not in self.admin_ids:
+            return
+        
+        # Check if update has message
+        if not update.message:
+            logger.warning("add_principle called without message")
             return
         
         try:
@@ -1134,13 +1148,21 @@ class BotHandlers:
                 
         except Exception as e:
             logger.error(f"Error in add principle handler: {e}")
-            await update.message.reply_text(self._get_admin_text("add_error"))
+            try:
+                await update.message.reply_text(self._get_admin_text("add_error"))
+            except:
+                logger.error(f"Could not send error message to {chat_id}")
     
     async def _handle_stats(self, update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         """Handle /stats command (admin only)."""
         chat_id = update.effective_chat.id
         
         if chat_id not in self.admin_ids:
+            return
+        
+        # Check if update has message
+        if not update.message:
+            logger.warning("stats called without message")
             return
         
         try:
@@ -1162,17 +1184,26 @@ class BotHandlers:
                 status=status
             )
             
-            await update.message.reply_text(text, parse_mode='Markdown')
+            # Send without Markdown to avoid parsing errors
+            await update.message.reply_text(text)
             
         except Exception as e:
             logger.error(f"Error in stats handler: {e}")
-            await update.message.reply_text("Error getting statistics.")
+            try:
+                await update.message.reply_text("Error getting statistics.")
+            except:
+                logger.error(f"Could not send error message to {chat_id}")
     
     async def _handle_broadcast(self, update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         """Handle /broadcast command (admin only)."""
         chat_id = update.effective_chat.id
         
         if chat_id not in self.admin_ids:
+            return
+        
+        # Check if update has message
+        if not update.message:
+            logger.warning("broadcast called without message")
             return
         
         try:
@@ -1195,7 +1226,8 @@ class BotHandlers:
             
             for user in active_users:
                 try:
-                    await context.bot.send_message(user.chat_id, broadcast_text, parse_mode='Markdown')
+                    # Send broadcast without Markdown to avoid parsing errors
+                    await context.bot.send_message(user.chat_id, broadcast_text)
                     sent_count += 1
                 except Exception:
                     failed_count += 1
@@ -1207,11 +1239,15 @@ class BotHandlers:
                 total=len(active_users)
             )
             
-            await update.message.reply_text(result_text, parse_mode='Markdown')
+            # Send result without Markdown to avoid parsing errors
+            await update.message.reply_text(result_text)
             
         except Exception as e:
             logger.error(f"Error in broadcast handler: {e}")
-            await update.message.reply_text("Error during broadcast.")
+            try:
+                await update.message.reply_text("Error during broadcast.")
+            except:
+                logger.error(f"Could not send error message to {chat_id}")
     
     async def _handle_message(self, update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         """Handle general messages for registration flow."""
@@ -2060,6 +2096,11 @@ class BotHandlers:
         if chat_id not in self.admin_ids:
             return
         
+        # Check if update has message
+        if not update.message:
+            logger.warning("feedback_stats called without message")
+            return
+        
         try:
             stats = await self.storage.get_feedback_stats()
             
@@ -2078,17 +2119,26 @@ class BotHandlers:
                 by_language=lang_text
             )
             
-            await update.message.reply_text(text, parse_mode='Markdown')
+            # Send without Markdown to avoid parsing errors
+            await update.message.reply_text(text)
             
         except Exception as e:
             logger.error(f"Error in feedback_stats handler: {e}")
-            await update.message.reply_text("Error getting feedback statistics.")
+            try:
+                await update.message.reply_text("Error getting feedback statistics.")
+            except:
+                logger.error(f"Could not send error message to {chat_id}")
     
     async def _handle_feedback_list(self, update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         """Handle /feedback_list command (admin only)."""
         chat_id = update.effective_chat.id
         
         if chat_id not in self.admin_ids:
+            return
+        
+        # Check if update has message
+        if not update.message:
+            logger.warning("feedback_list called without message")
             return
         
         try:
@@ -2113,36 +2163,53 @@ class BotHandlers:
             message_parts = [self._get_admin_text("feedback_list_header", count=len(feedback_list))]
             
             for feedback in feedback_list:
-                # Truncate long messages
+                # Truncate long messages and escape special characters
                 message_text = feedback.message
                 if len(message_text) > 100:
                     message_text = message_text[:97] + "..."
+                
+                # Escape special Markdown characters
+                safe_message = self._escape_markdown(message_text)
+                safe_username = self._escape_markdown(feedback.username)
                 
                 item_text = self._get_admin_text(
                     "feedback_item",
                     id=feedback.id,
                     timestamp=feedback.timestamp[:16],  # YYYY-MM-DD HH:MM
                     chat_id=feedback.chat_id,
-                    username=feedback.username,
+                    username=safe_username,
                     language=feedback.language,
                     length=feedback.message_length,
-                    message=message_text
+                    message=safe_message
                 )
                 message_parts.append(item_text)
             
             full_message = "".join(message_parts)
             
-            # Split message if too long
+            # Split message if too long and send without Markdown to avoid parsing errors
             if len(full_message) > 4000:
                 for i in range(0, len(full_message), 4000):
                     chunk = full_message[i:i+4000]
-                    await update.message.reply_text(chunk, parse_mode='Markdown')
+                    await update.message.reply_text(chunk)
             else:
-                await update.message.reply_text(full_message, parse_mode='Markdown')
+                await update.message.reply_text(full_message)
             
         except Exception as e:
             logger.error(f"Error in feedback_list handler: {e}")
-            await update.message.reply_text("Error getting feedback list.")
+            try:
+                await update.message.reply_text("Error getting feedback list.")
+            except:
+                logger.error(f"Could not send error message to {chat_id}")
+    
+    def _escape_markdown(self, text: str) -> str:
+        """Escape special Markdown characters."""
+        if not text:
+            return ""
+        # Escape markdown special characters
+        special_chars = ['*', '_', '`', '[', ']', '(', ')', '~', '>', '#', '+', '-', '=', '|', '{', '}', '.', '!']
+        for char in special_chars:
+            text = text.replace(char, f'\\{char}')
+        return text
     
     async def _handle_admin(self, update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         """Handle /admin command (admin only)."""
@@ -2151,10 +2218,19 @@ class BotHandlers:
         if chat_id not in self.admin_ids:
             return
         
+        # Check if update has message
+        if not update.message:
+            logger.warning("admin called without message")
+            return
+        
         try:
             text = self._get_admin_text("admin_help")
-            await update.message.reply_text(text, parse_mode='Markdown')
+            # Send without Markdown to avoid parsing errors
+            await update.message.reply_text(text)
             
         except Exception as e:
             logger.error(f"Error in admin handler: {e}")
-            await update.message.reply_text("Error showing admin help.")
+            try:
+                await update.message.reply_text("Error showing admin help.")
+            except:
+                logger.error(f"Could not send error message to {chat_id}")
