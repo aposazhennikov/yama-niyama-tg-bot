@@ -1689,7 +1689,7 @@ class BotHandlers:
                 self.user_states[chat_id] = {"step": "change_timezone", "language": language, "settings_message_id": query.message.message_id}
                 keyboard = self._create_timezone_keyboard(language)
                 # Add back button
-                keyboard.keyboard.append([InlineKeyboardButton(self._get_text("back_to_menu", language), callback_data="settings_back")])
+                keyboard.inline_keyboard.append([InlineKeyboardButton(self._get_text("back_to_menu", language), callback_data="settings_back")])
                 await query.edit_message_text(
                     self._get_text("timezone_step", language), 
                     reply_markup=keyboard,
@@ -1731,7 +1731,7 @@ class BotHandlers:
                 
                 keyboard = self._create_skip_days_keyboard(language, current_skip_days)
                 # Add back button at the end
-                keyboard.keyboard.append([InlineKeyboardButton(self._get_text("back_to_menu", language), callback_data="settings_back")])
+                keyboard.inline_keyboard.append([InlineKeyboardButton(self._get_text("back_to_menu", language), callback_data="settings_back")])
                 
                 await query.edit_message_text(
                     text, 
