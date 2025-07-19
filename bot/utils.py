@@ -208,11 +208,11 @@ def get_principle_image_path(principle_id: int) -> Optional[str]:
     
     # Try different possible locations for images
     possible_paths = [
-        current_dir / "images" / f"{principle_id}.png",  # From project root
-        Path("images") / f"{principle_id}.png",  # Relative to current dir
-        Path("../images") / f"{principle_id}.png",  # One level up
-        Path(f"./images/{principle_id}.png"),  # Current directory
-        Path(f"/app/images/{principle_id}.png"),  # Docker absolute path
+        current_dir / "images" / f"{principle_id}.jpg",  # From project root
+        Path("images") / f"{principle_id}.jpg",  # Relative to current dir
+        Path("../images") / f"{principle_id}.jpg",  # One level up
+        Path(f"./images/{principle_id}.jpg"),  # Current directory
+        Path(f"/app/images/{principle_id}.jpg"),  # Docker absolute path
     ]
     
     for image_path in possible_paths:
