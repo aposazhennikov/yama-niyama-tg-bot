@@ -20,8 +20,12 @@ class User:
     last_feedback_time: Optional[float] = None  # Unix timestamp for rate limiting
     
     def __post_init__(self):
+        """Initialize default values."""
         if self.skip_day_id is None:
             self.skip_day_id = []
+        # Ensure last_feedback_time is None if not set
+        if not hasattr(self, 'last_feedback_time'):
+            self.last_feedback_time = None
 
 
 @dataclass 
@@ -80,12 +84,22 @@ class JsonStorage:
     
     async def _write_json(self, filepath: str, data: Dict[str, Any]) -> bool:
         """Write JSON file asynchronously."""
+        import logging
+        logger = logging.getLogger(__name__)
+        
         try:
+            # Ensure directory exists
+            os.makedirs(os.path.dirname(filepath), exist_ok=True)
+            
+            # Write data to file
             async with aiofiles.open(filepath, 'w', encoding='utf-8') as f:
                 content = json.dumps(data, ensure_ascii=False, indent=2)
                 await f.write(content)
+                logger.info(f"Successfully wrote data to {filepath}")
             return True
-        except Exception:
+            
+        except Exception as e:
+            logger.error(f"Error writing to {filepath}: {e}")
             return False
     
     async def get_user(self, chat_id: int) -> Optional[User]:
@@ -98,9 +112,23 @@ class JsonStorage:
     
     async def save_user(self, user: User) -> bool:
         """Save or update user."""
-        users_data = await self._read_json(self.users_file)
-        users_data[str(user.chat_id)] = asdict(user)
-        return await self._write_json(self.users_file, users_data)
+        import logging
+        logger = logging.getLogger(__name__)
+        
+        try:
+            users_data = await self._read_json(self.users_file)
+            user_dict = asdict(user)
+            users_data[str(user.chat_id)] = user_dict
+            logger.info(f"Saving user data: {user_dict}")
+            
+            success = await self._write_json(self.users_file, users_data)
+            if not success:
+                logger.error(f"Failed to write user data to {self.users_file}")
+            return success
+            
+        except Exception as e:
+            logger.error(f"Error saving user data: {e}")
+            return False
     
     async def get_all_active_users(self) -> List[User]:
         """Get all active users."""
