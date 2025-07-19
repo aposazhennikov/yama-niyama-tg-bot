@@ -110,7 +110,7 @@ TEXTS = {
         "menu_settings": "⚙️ Settings",
         "menu_test": "🧪 Test Message",
         "menu_about": "ℹ️ About Bot",
-        "menu_feedback": "💌 Feedback",
+        "menu_feedback": "💌 Feedback & Ideas",
         "menu_stop": "❌ Unsubscribe",
         "settings_menu": "⚙️ **Settings Menu**\n\nWhat would you like to change?",
         "change_language": "🌐 Change Language",
@@ -128,21 +128,29 @@ TEXTS = {
         ),
         "no_skip_days": "✅ No days will be skipped",
         "about_text": (
-            "🕊️ **Yoga Principles Bot**\n\n"
-            "This bot sends daily yoga principles (Yamas and Niyamas) to help you on your spiritual journey.\n\n"
-            "🔹 **Random principles** for each user\n"
-            "🔹 **Multilingual** support (English/Russian)\n"
-            "🔹 **Customizable** time and timezone\n"
-            "🔹 **Skip days** functionality\n\n"
-            "Made with ❤️ for yoga practitioners"
+            "🕊️ **Yama/Niyama Training Bot**\n\n"
+            "This bot helps you practice yoga principles (Yama and Niyama) daily. "
+            "Each day you receive one principle that becomes your focus of attention for the entire day.\n\n"
+            "🌟 **Features:**\n"
+            "• Principles are chosen randomly - everyone has their own path!\n"
+            "• Repetitions help better understand the principles\n"
+            "• Practice the principle throughout the day\n"
+            "• Develop mindfulness in everyday life\n\n"
+            "⚙️ **Capabilities:**\n"
+            "🔹 **Random selection** of principle for each user\n"
+            "🔹 **Two languages:** English and Russian\n"
+            "🔹 **Flexible settings** for receiving time\n"
+            "🔹 **Skip days** when you need to rest\n\n"
+            "Created with ❤️ for your spiritual growth. Let's change for the better together!"
         ),
         "feedback_prompt": (
-            "💌 **Share Your Feedback**\n\n"
-            "Your opinion matters! Please share:\n"
+            "💌 **Share Your Feedback & Ideas**\n\n"
+            "Your opinion and suggestions matter! Please share:\n"
             "• How do you like the bot?\n"
-            "• Suggestions for improvement\n"
-            "• Any issues you've encountered\n"
-            "• Ideas for new features\n\n"
+            "• What features would you like to see?\n"
+            "• Any suggestions for improvement?\n"
+            "• Issues you've encountered\n"
+            "• Ideas for new principles or content\n\n"
             "Just write your message below:"
         ),
         "feedback_sent": "✅ Thank you for your feedback! Your message has been sent to the developers.",
@@ -235,7 +243,7 @@ TEXTS = {
         "menu_settings": "⚙️ Настройки",
         "menu_test": "🧪 Тестовое сообщение",
         "menu_about": "ℹ️ О боте",
-        "menu_feedback": "💌 Обратная связь",
+        "menu_feedback": "💌 Отзывы и идеи",
         "menu_stop": "❌ Отписаться",
         "settings_menu": "⚙️ **Меню настроек**\n\nЧто вы хотите изменить?",
         "change_language": "🌐 Изменить язык",
@@ -269,12 +277,13 @@ TEXTS = {
             "Создано с ❤️ для вашего духовного развития. Давайте меняться к лучшему вместе!"
         ),
         "feedback_prompt": (
-            "💌 **Поделитесь своим отзывом**\n\n"
-            "Ваше мнение важно! Пожалуйста, поделитесь:\n"
+            "💌 **Поделитесь отзывом и идеями**\n\n"
+            "Ваше мнение и предложения очень важны! Поделитесь:\n"
             "• Как вам бот?\n"
-            "• Предложения по улучшению\n"
-            "• Любые проблемы, с которыми вы столкнулись\n"
-            "• Идеи для новых функций\n\n"
+            "• Какие функции хотели бы видеть?\n"
+            "• Есть предложения по улучшению?\n"
+            "• Нашли какие-то проблемы?\n"
+            "• Идеи для новых принципов или контента\n\n"
             "Просто напишите ваше сообщение ниже:"
         ),
         "feedback_sent": "✅ Спасибо за ваш отзыв! Ваше сообщение отправлено разработчикам.",
