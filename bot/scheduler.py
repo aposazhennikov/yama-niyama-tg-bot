@@ -86,23 +86,41 @@ class YogaScheduler:
         language_labels = labels.get(language, labels["en"])
         return language_labels.get(key, labels["en"][key])
 
-    def _create_meridian_reminder_keyboard(self, language: str, point_index: int, points_count: int) -> InlineKeyboardMarkup:
+    def _create_meridian_reminder_keyboard(
+        self,
+        language: str,
+        point_index: int,
+        points_count: int,
+        meridian_id: Optional[str] = None
+    ) -> InlineKeyboardMarkup:
         """Create inline navigation for daily meridian reminder messages."""
         keyboard = []
 
         if point_index < 0:
+            start_callback = (
+                f"meridian_point:{meridian_id}:0"
+                if meridian_id
+                else "meridian_next"
+            )
             keyboard.append([
-                InlineKeyboardButton(self._meridian_button_text("start", language), callback_data="meridian_next")
+                InlineKeyboardButton(self._meridian_button_text("start", language), callback_data=start_callback)
             ])
         else:
             navigation_row = []
+            point_prefix = f"meridian_point:{meridian_id}:" if meridian_id else "meridian_point:"
             if point_index > 0:
                 navigation_row.append(
-                    InlineKeyboardButton(self._meridian_button_text("prev", language), callback_data="meridian_prev")
+                    InlineKeyboardButton(
+                        self._meridian_button_text("prev", language),
+                        callback_data=f"{point_prefix}{point_index - 1}"
+                    )
                 )
             if point_index < points_count - 1:
                 navigation_row.append(
-                    InlineKeyboardButton(self._meridian_button_text("next", language), callback_data="meridian_next")
+                    InlineKeyboardButton(
+                        self._meridian_button_text("next", language),
+                        callback_data=f"{point_prefix}{point_index + 1}"
+                    )
                 )
             if navigation_row:
                 keyboard.append(navigation_row)
@@ -322,7 +340,9 @@ class YogaScheduler:
                 message_text = format_meridian_intro(meridian, user.language)
                 image_path = get_meridian_image_path(meridian["id"])
 
-            keyboard = self._create_meridian_reminder_keyboard(user.language, user.current_point_index, len(points))
+            keyboard = self._create_meridian_reminder_keyboard(
+                user.language, user.current_point_index, len(points), meridian.get("id")
+            )
             await self._send_meridian_message_with_retry(chat_id, message_text, image_path, keyboard)
 
             current_user = await self.storage.get_user(chat_id)
@@ -608,7 +628,9 @@ class YogaScheduler:
             message_text = prefix + format_meridian_intro(meridian, language)
             image_path = get_meridian_image_path(meridian["id"])
 
-        keyboard = self._create_meridian_reminder_keyboard(language, user.current_point_index, len(points))
+        keyboard = self._create_meridian_reminder_keyboard(
+            language, user.current_point_index, len(points), meridian.get("id")
+        )
         return await self._send_meridian_message_with_retry(user.chat_id, message_text, image_path, keyboard)
     
     def get_scheduler_stats(self) -> Dict[str, Any]:

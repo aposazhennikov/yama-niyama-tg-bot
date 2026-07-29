@@ -4875,8 +4875,16 @@ class BotHandlers:
     ) -> InlineKeyboardMarkup:
         """Create navigation keyboard for an opened meridian or point."""
         if at_intro:
+            start_callback = (
+                f"meridian_point:{meridian_id}:0"
+                if meridian_id
+                else "meridian_next"
+            )
             keyboard = [
-                [InlineKeyboardButton(self._get_text("meridian_start_points", language), callback_data="meridian_next")],
+                [InlineKeyboardButton(
+                    self._get_text("meridian_start_points", language),
+                    callback_data=start_callback
+                )],
                 [InlineKeyboardButton(self._get_text("meridian_video", language), callback_data="meridian_video")],
                 [
                     InlineKeyboardButton(self._get_text("all_points", language), callback_data="meridian_all"),
@@ -4893,10 +4901,19 @@ class BotHandlers:
             return InlineKeyboardMarkup(keyboard)
 
         navigation_row = []
+        point_prefix = f"meridian_point:{meridian_id}:" if meridian_id else "meridian_point:"
         if point_index is None or point_index > 0:
-            navigation_row.append(InlineKeyboardButton(self._get_text("prev_point", language), callback_data="meridian_prev"))
+            previous_index = max(0, (point_index or 0) - 1)
+            navigation_row.append(InlineKeyboardButton(
+                self._get_text("prev_point", language),
+                callback_data=f"{point_prefix}{previous_index}"
+            ))
         if point_index is None or points_count is None or point_index < points_count - 1:
-            navigation_row.append(InlineKeyboardButton(self._get_text("next_point", language), callback_data="meridian_next"))
+            next_index = 0 if point_index is None else point_index + 1
+            navigation_row.append(InlineKeyboardButton(
+                self._get_text("next_point", language),
+                callback_data=f"{point_prefix}{next_index}"
+            ))
 
         keyboard = []
         if navigation_row:
@@ -5086,7 +5103,7 @@ class BotHandlers:
             keyboard.append([
                 InlineKeyboardButton(
                     f"{index + 1}. {code} {name}".strip(),
-                    callback_data=f"meridian_point:{index}"
+                    callback_data=f"meridian_point:{meridian.get('id')}:{index}"
                 )
             ])
         if total_pages > 1:
@@ -5877,7 +5894,19 @@ class BotHandlers:
                 return
 
             if action.startswith("point:"):
-                point_index = int(action.split(":", 1)[1])
+                point_parts = action.split(":")
+                if len(point_parts) == 3:
+                    requested_meridian = self.meridians_manager.get_meridian_by_id(point_parts[1])
+                    if not requested_meridian:
+                        await self._edit_message_text_safe(query, self._get_text("error", language))
+                        return
+                    meridian = requested_meridian
+                    points = meridian.get("points", [])
+                    user.current_meridian_id = meridian.get("id")
+                    point_index = int(point_parts[2])
+                else:
+                    # Compatibility with point buttons published before callbacks carried context.
+                    point_index = int(point_parts[1])
                 if point_index < 0 or point_index >= len(points):
                     await self._edit_message_text_safe(query, self._get_text("error", language))
                     return
@@ -5888,10 +5917,16 @@ class BotHandlers:
                 await self._show_meridian_card(
                     query,
                     text,
-                    self._create_meridian_practice_keyboard(language, point_index=point_index, points_count=len(points)),
+                    self._create_meridian_practice_keyboard(
+                        language,
+                        point_index=point_index,
+                        points_count=len(points),
+                        meridian_id=meridian.get("id")
+                    ),
                     language,
                     meridian.get("id"),
-                    point_code
+                    point_code,
+                    append=True
                 )
                 return
 
@@ -5909,10 +5944,16 @@ class BotHandlers:
                 await self._show_meridian_card(
                     query,
                     text,
-                    self._create_meridian_practice_keyboard(language, point_index=user.current_point_index, points_count=len(points)),
+                    self._create_meridian_practice_keyboard(
+                        language,
+                        point_index=user.current_point_index,
+                        points_count=len(points),
+                        meridian_id=meridian.get("id")
+                    ),
                     language,
                     meridian.get("id"),
-                    point_code
+                    point_code,
+                    append=True
                 )
                 return
 
@@ -6630,11 +6671,50 @@ class BotHandlers:
         keyboard: InlineKeyboardMarkup,
         language: str,
         meridian_id: Optional[str] = None,
-        point_code: Optional[str] = None
+        point_code: Optional[str] = None,
+        append: bool = False
     ) -> None:
         """Show meridian content with an image when available."""
         chat_id = query.message.chat.id
         image_path = get_meridian_image_path(meridian_id, point_code) if meridian_id else None
+
+        if append:
+            if image_path:
+                caption = self._fit_html_caption(text)
+                is_gif = image_path.lower().endswith(".gif")
+                with open(image_path, "rb") as media_file:
+                    if is_gif:
+                        sent_message = await self.application.bot.send_animation(
+                            chat_id=chat_id,
+                            animation=media_file,
+                            caption=caption,
+                            reply_markup=keyboard,
+                            parse_mode='HTML'
+                        )
+                    else:
+                        sent_message = await self.application.bot.send_photo(
+                            chat_id=chat_id,
+                            photo=media_file,
+                            caption=caption,
+                            reply_markup=keyboard,
+                            parse_mode='HTML'
+                        )
+            else:
+                sent_message = await self.application.bot.send_message(
+                    chat_id=chat_id,
+                    text=text,
+                    reply_markup=keyboard,
+                    parse_mode='HTML'
+                )
+            await self.storage.add_bot_message(chat_id, sent_message.message_id, "meridian")
+            try:
+                await query.edit_message_reply_markup(reply_markup=None)
+            except BadRequest as e:
+                if "message is not modified" not in str(e).lower():
+                    logger.debug("Could not clear old meridian keyboard: %s", e)
+            except Exception as e:
+                logger.debug("Could not clear old meridian keyboard: %s", e)
+            return
 
         if image_path:
             caption = self._fit_html_caption(text)
