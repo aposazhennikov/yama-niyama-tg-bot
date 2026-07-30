@@ -265,7 +265,7 @@ class YogaScheduler:
         except Exception as e:
             logger.error(f"Error scheduling meridian reminder for user {user.chat_id}: {e}")
     
-    async def _send_principle_to_user(self, chat_id: int) -> None:
+    async def _send_principle_to_user(self, chat_id: int) -> bool:
         """Send principle message to user."""
         try:
             logger.info(f"Sending principle to user {chat_id}...")
@@ -274,13 +274,13 @@ class YogaScheduler:
             user = await self.storage.get_user(chat_id)
             if not user or not user.is_active or not user.principles_enabled:
                 logger.warning(f"User {chat_id} not found, inactive, or principle practice is disabled.")
-                return
+                return False
             
             # Get completely random principle for this user in their language.
             principle = self.principles_manager.get_random_principle(user.language)
             if not principle:
                 logger.warning(f"No principles available for user {chat_id} in language {user.language}.")
-                return
+                return False
             
             # Format message.
             message_text = format_principle_message(principle, user.language)
@@ -300,29 +300,31 @@ class YogaScheduler:
             current_user = await self.storage.get_user(chat_id)
             if current_user and current_user.is_active and current_user.principles_enabled:
                 await self._schedule_user_message(current_user)
+            return success
 
         except Exception as e:
             logger.error(f"Error sending principle to user {chat_id}: {e}")
+            return False
 
-    async def _send_meridian_to_user(self, chat_id: int) -> None:
+    async def _send_meridian_to_user(self, chat_id: int) -> bool:
         """Send current meridian focus to user without advancing progress."""
         try:
             logger.info(f"Sending meridian focus to user {chat_id}...")
             user = await self.storage.get_user(chat_id)
             if not user or not user.is_active or not user.meridians_enabled or not user.meridian_learning_mode:
-                return
+                return False
             if not self.meridians_manager:
                 logger.warning("Meridians manager is not configured.")
-                return
+                return False
             if self._is_guided_meridian_route_completed(user):
                 logger.info(f"Guided meridian route is completed for user {chat_id}; reminder is skipped.")
-                return
+                return False
 
             meridian = self.meridians_manager.get_meridian_by_id(user.current_meridian_id) if user.current_meridian_id else None
             if not meridian:
                 meridian = self.meridians_manager.get_first_meridian()
                 if not meridian:
-                    return
+                    return False
                 user.current_meridian_id = meridian["id"]
                 user.current_point_index = -1
                 await self.storage.save_user(user)
@@ -343,14 +345,45 @@ class YogaScheduler:
             keyboard = self._create_meridian_reminder_keyboard(
                 user.language, user.current_point_index, len(points), meridian.get("id")
             )
-            await self._send_meridian_message_with_retry(chat_id, message_text, image_path, keyboard)
+            success = await self._send_meridian_message_with_retry(chat_id, message_text, image_path, keyboard)
 
             current_user = await self.storage.get_user(chat_id)
             if current_user and current_user.is_active and current_user.meridians_enabled:
                 await self._schedule_user_meridian_message(current_user)
+            return success
 
         except Exception as e:
             logger.error(f"Error sending meridian focus to user {chat_id}: {e}")
+            return False
+
+    async def resend_daily_reminders_to_all(self) -> tuple[int, int, int]:
+        """Resend enabled daily practices to every active user."""
+        active_users = await self.storage.get_all_active_users()
+        reached_users = 0
+        failed_users = 0
+        deliveries = 0
+
+        for user in active_users:
+            attempted = 0
+            successful = 0
+
+            if user.principles_enabled:
+                attempted += 1
+                if await self._send_principle_to_user(user.chat_id):
+                    successful += 1
+
+            if user.meridians_enabled and user.meridian_learning_mode:
+                attempted += 1
+                if await self._send_meridian_to_user(user.chat_id):
+                    successful += 1
+
+            deliveries += successful
+            if successful:
+                reached_users += 1
+            if attempted and successful < attempted:
+                failed_users += 1
+
+        return reached_users, failed_users, deliveries
 
     async def _send_meridian_message_with_retry(
         self,

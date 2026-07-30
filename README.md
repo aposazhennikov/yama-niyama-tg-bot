@@ -298,6 +298,7 @@ docker compose up -d --force-recreate
 | `/next [user_id]` | Тестовый принцип для пользователя |
 | `/broadcast <message>` | Ручная рассылка всем активным пользователям |
 | `/broadcast meridians_announcement` | Локализованный анонс функции меридианов |
+| `/resend_today` | Аварийная повторная отправка ежедневных практик всем активным пользователям |
 | `/feedback_stats` | Статистика отзывов |
 | `/feedback_list [limit]` | Последние отзывы |
 

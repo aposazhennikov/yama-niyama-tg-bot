@@ -1388,6 +1388,14 @@ ADMIN_TEXTS = {
         "❌ Errors: {failed}\n"
         "👥 Total: {total}"
     ),
+    "resend_today_start": "Resending today's reminders to {count} active users...",
+    "resend_today_result": (
+        "Today's reminders resent.\n\n"
+        "Users reached: {reached}\n"
+        "Deliveries sent: {deliveries}\n"
+        "Users with errors: {failed}\n"
+        "Active users: {total}"
+    ),
     "feedback_stats": (
         "💌 Feedback Statistics:\n\n"
         "📝 Total feedback: {total_feedback}\n"
@@ -1416,6 +1424,7 @@ ADMIN_TEXTS = {
         "• /progress [limit] - View users' meridian progress and secret tasks\n\n"
         "📨 Messages:\n"
         "• /next - Show random principle for user\n"
+        "• /resend_today - Resend today's practices to all active users\n"
         "• /broadcast <message> - Send message to all users\n"
         "• /broadcast meridians_announcement - Send localized meridians announcement\n\n"
         "All commands are admin-only and require proper permissions."
@@ -3273,7 +3282,7 @@ class BotHandlers:
         # Admin commands.
         self.application.add_handler(
             MessageHandler(
-                filters.Regex(r"^/(stats|feedback_stats|feedback_list|progress|broadcast)(?:@\w+)?(?:\s|$)"),
+                filters.Regex(r"^/(stats|feedback_stats|feedback_list|progress|broadcast|resend_today)(?:@\w+)?(?:\s|$)"),
                 self._handle_admin_text_command_fallback
             ),
             group=-1
@@ -3282,6 +3291,7 @@ class BotHandlers:
         self.application.add_handler(CommandHandler("add", self._handle_add_principle))
         self.application.add_handler(CommandHandler("stats", self._handle_stats))
         self.application.add_handler(CommandHandler("broadcast", self._handle_broadcast))
+        self.application.add_handler(CommandHandler("resend_today", self._handle_resend_today))
         self.application.add_handler(CommandHandler("feedback_stats", self._handle_feedback_stats))
         self.application.add_handler(CommandHandler("feedback_list", self._handle_feedback_list))
         self.application.add_handler(CommandHandler("progress", self._handle_progress))
@@ -3340,6 +3350,9 @@ class BotHandlers:
             raise ApplicationHandlerStop
         if command == "/broadcast":
             await self._handle_broadcast(update, context)
+            raise ApplicationHandlerStop
+        if command == "/resend_today":
+            await self._handle_resend_today(update, context)
             raise ApplicationHandlerStop
 
     def _as_html(self, text: str) -> str:
@@ -4040,6 +4053,31 @@ class BotHandlers:
                 await update.message.reply_text("Error during broadcast.")
             except:
                 logger.error(f"Could not send error message to {chat_id}")
+
+    async def _handle_resend_today(self, update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+        """Resend regular daily practices to all active users."""
+        chat_id = update.effective_chat.id
+        if chat_id not in self.admin_ids or not update.message:
+            return
+
+        try:
+            active_users = await self.storage.get_all_active_users()
+            await update.message.reply_text(
+                self._get_admin_text("resend_today_start", count=len(active_users))
+            )
+            reached, failed, deliveries = await self.scheduler.resend_daily_reminders_to_all()
+            await update.message.reply_text(
+                self._get_admin_text(
+                    "resend_today_result",
+                    reached=reached,
+                    deliveries=deliveries,
+                    failed=failed,
+                    total=len(active_users)
+                )
+            )
+        except Exception as e:
+            logger.error("Error resending daily reminders: %s", e)
+            await update.message.reply_text("Error while resending today's reminders.")
 
     async def _send_localized_broadcast(self, text_key: str, context: ContextTypes.DEFAULT_TYPE) -> tuple:
         """Send a localized broadcast template to all active users."""
